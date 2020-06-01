@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="EntityUniProjectTrain.MarkPage"
+             Title="Помітки">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Title" />
+            <Entry Text="{Binding MarkTitle}" />
+            <Label Text="Text" />
+            <Editor Text="{Binding MarkText}"
+                    AutoSize="TextChanges" 
+                    HeightRequest = "50"
+                    Keyboard="Chat"/>
+            <Label Text="Type" />
+            <!--<Entry Text="{Binding NotationType}" />-->
+            <Picker x:Name="picker" SelectedItem="{Binding MarkType}">
+                <Picker.Items>
+                    <x:String>Tag</x:String>
+                    <x:String>Label</x:String>
+                </Picker.Items>
+            </Picker>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Зберегти" Clicked="SaveNote" />
+                <Button Text="Видалити" Clicked="DeleteNote" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

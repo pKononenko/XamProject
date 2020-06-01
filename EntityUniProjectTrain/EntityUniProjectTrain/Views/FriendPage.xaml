@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="EntityUniProjectTrain.FriendPage"
+             Title="Нотатка">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Name" />
+            <Entry Text="{Binding NotationName}" />
+            <Label Text="Text" />
+            <Editor Text="{Binding NotationText}"
+                    AutoSize="TextChanges" 
+                    HeightRequest = "50"
+                    Keyboard="Chat"/>
+            <Label Text="Type" />
+            <!--<Entry Text="{Binding NotationType}" />-->
+            <Picker x:Name="picker" SelectedItem="{Binding NotationType}">
+                <Picker.Items>
+                    <x:String>Note</x:String>
+                    <x:String>Event</x:String>
+                    <x:String>Task</x:String>
+                </Picker.Items>
+            </Picker>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Зберегти" Clicked="SaveNote" />
+                <Button Text="Видалити" Clicked="DeleteNote" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
