@@ -13,13 +13,13 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="friendsList" ItemSelected="OnItemSelected">
+            <ListView x:Name="friendsList" ItemSelected="OnItemSelected" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
-                                <StackLayout Orientation="Vertical">
-                                    <StackLayout Margin="20,0,20,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Vertical" Margin="20,0,20,0" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                         <Label Text="{Binding NotationName}" VerticalTextAlignment="Center" FontSize="Medium" HorizontalOptions="StartAndExpand" TextColor="Black"/>
                                         <Label Text="{Binding NotationType}" FontSize="Medium" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                                         <Label Text="{Binding DateOfCreation}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" FontSize="Small"/>
