@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -9,41 +10,75 @@ using Xamarin.Forms;
 namespace EntityUniProjectTrain
 {
     [DesignTimeVisible(false)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : MasterDetailPage
+
     {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+    public MainPage()
+    {
+        InitializeComponent();
+        Detail = new NavigationPage(new DayPage());
+        IsPresented = true;
+    }
 
-        // Обробка змін при появі
-        protected override void OnAppearing()
-        {
-            string dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
-            using (EntityTodoDatabase db = new EntityTodoDatabase(dbPath))
-            {
-                friendsList.ItemsSource = db.Notations.OrderByDescending(x => x.DateOfCreation).ToList();
-            }
-            base.OnAppearing();
-        }
 
-        // Обробка вибору елементу
-        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            Notation selectedFriend = (Notation)e.SelectedItem;
-            FriendPage friendPage = new FriendPage();
-            friendPage.BindingContext = selectedFriend;
-            await Navigation.PushAsync(friendPage);
-        }
 
-        // Обробка натиснення на кнопку
-        private async void CreateItem(object sender, EventArgs e)
+    protected override void OnAppearing()
+    {
+        string dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
+        using (EntityTodoDatabase db = new EntityTodoDatabase(dbPath))
         {
-            Notation friend = new Notation();
-            FriendPage friendPage = new FriendPage();
-            friendPage.BindingContext = friend;
-            await Navigation.PushAsync(friendPage);
+            friendsList.ItemsSource = db.Notations.OrderByDescending(x => x.DateOfCreation).ToList();
         }
+<<<<<<< HEAD
+
+        base.OnAppearing();
+    }
+
+    // Обробка вибору елементу
+    private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        Notation selectedFriend = (Notation) e.SelectedItem;
+        FriendPage friendPage = new FriendPage();
+        friendPage.BindingContext = selectedFriend;
+        await Navigation.PushAsync(friendPage);
+    }
+
+    // Обробка натиснення на кнопку
+    private async void CreateItem(object sender, EventArgs e)
+    {
+        Notation friend = new Notation();
+        FriendPage friendPage = new FriendPage();
+        friendPage.BindingContext = friend;
+        await Navigation.PushAsync(friendPage);
+    }
+
+    private async void CreateMarkItem(object sender, EventArgs e)
+    {
+        Mark mark = new Mark();
+        MarkPage markPage = new MarkPage();
+        markPage.BindingContext = mark;
+        await Navigation.PushAsync(markPage);
+    }
+
+    private void OpenAllNotations(object sender, EventArgs e)
+    {
+        Detail = new NavigationPage(new AllNotationsPage());
+        IsPresented = false;
+    }
+    
+    private void OpenAllMarks(object sender, EventArgs e)
+    {
+        Detail = new NavigationPage(new AllMarksPage());
+        IsPresented = false;
+    }
+    
+    private void OpenDay(object sender, EventArgs e)
+    {
+        Detail = new NavigationPage(new DayPage());
+        IsPresented = false;
+    }
+
+=======
         
         private async void CreateMarkItem(object sender, EventArgs e)
         {
@@ -52,5 +87,6 @@ namespace EntityUniProjectTrain
             markPage.BindingContext = mark;
             await Navigation.PushAsync(markPage);
         }
+>>>>>>> master
     }
 }
