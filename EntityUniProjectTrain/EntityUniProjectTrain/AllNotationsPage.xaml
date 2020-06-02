@@ -9,10 +9,6 @@
         <ToolbarItem Text="Notation" Clicked="CreateItem">
 
         </ToolbarItem>
-
-        <ToolbarItem Text="Mark" Clicked="CreateMarkItem">
-
-        </ToolbarItem>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

@@ -16,24 +16,33 @@ namespace EntityUniProjectTrain
         {
             InitializeComponent();
         }
+
         protected override void OnAppearing()
         {
             string dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
             using (EntityTodoDatabase db = new EntityTodoDatabase(dbPath))
             {
-                friendsList.ItemsSource = db.Marks.ToList();
+                marksList.ItemsSource = db.Marks.ToList();
             }
 
             base.OnAppearing();
         }
 
-        private async void CreateItem(object sender, EventArgs e)
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Mark selectedMark = (Mark)e.SelectedItem;
+            MarkPage markPage = new MarkPage();
+            markPage.BindingContext = selectedMark;
+            await Navigation.PushAsync(markPage);
+        }
+
+        /*private async void CreateItem(object sender, EventArgs e)
         {
             Notation friend = new Notation();
             FriendPage friendPage = new FriendPage();
             friendPage.BindingContext = friend;
             await Navigation.PushAsync(friendPage);
-        }
+        }*/
 
         private async void CreateMarkItem(object sender, EventArgs e)
         {

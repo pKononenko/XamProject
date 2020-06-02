@@ -16,6 +16,7 @@ namespace EntityUniProjectTrain
         {
             InitializeComponent();
         }
+
         protected override void OnAppearing()
         {
             string dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
@@ -44,12 +45,12 @@ namespace EntityUniProjectTrain
             await Navigation.PushAsync(friendPage);
         }
 
-        private async void CreateMarkItem(object sender, EventArgs e)
+        /*private async void CreateMarkItem(object sender, EventArgs e)
         {
             Mark mark = new Mark();
             MarkPage markPage = new MarkPage();
             markPage.BindingContext = mark;
             await Navigation.PushAsync(markPage);
-        }
+        }*/
     }
 }

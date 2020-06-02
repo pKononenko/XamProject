@@ -17,6 +17,16 @@ namespace EntityUniProjectTrain
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            string dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
+            using (EntityTodoDatabase db = new EntityTodoDatabase(dbPath))
+            {
+                todayFriendsList.ItemsSource = db.Notations.Where(x => x.DateOfCreation >= DateTime.Today).OrderByDescending(x => x.DateOfCreation).ToList();
+            }
+            base.OnAppearing();
+        }
+
         // Обробка вибору елементу
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

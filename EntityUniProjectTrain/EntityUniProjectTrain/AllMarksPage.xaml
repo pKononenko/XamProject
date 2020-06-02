@@ -6,10 +6,6 @@
              Title = "All marks">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Notation" Clicked="CreateItem">
-
-        </ToolbarItem>
-
         <ToolbarItem Text="Mark" Clicked="CreateMarkItem">
 
         </ToolbarItem>
@@ -17,7 +13,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="friendsList">
+            <ListView x:Name="marksList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
