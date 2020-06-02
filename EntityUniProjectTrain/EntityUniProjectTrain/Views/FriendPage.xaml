@@ -17,14 +17,14 @@
                     HeightRequest = "50"
                     Keyboard="Chat"/>
             <Label Text="Type" />
-            <!--<Entry Text="{Binding NotationType}" />-->
-            <Picker x:Name="picker" SelectedItem="{Binding NotationType}">
-                <Picker.Items>
-                    <x:String>Note</x:String>
-                    <x:String>Event</x:String>
-                    <x:String>Task</x:String>
-                </Picker.Items>
-            </Picker>
+            <Entry Text="{Binding NotationType}" />
+             <Picker x:Name="picker" SelectedItem="{Binding NotationType}">
+                 <Picker.Items>
+                     <x:String>Note</x:String>
+                     <x:String>Event</x:String>
+                     <x:String>Task</x:String>
+                 </Picker.Items>
+             </Picker>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Зберегти" Clicked="SaveNote" />
                 <Button Text="Видалити" Clicked="DeleteNote" />
