@@ -44,7 +44,7 @@ namespace EntityUniProjectTrain
             friendPage.BindingContext = friend;
             await Navigation.PushAsync(friendPage);
         }
-
+        
         private async void CreateMarkItem(object sender, EventArgs e)
         {
             Mark mark = new Mark();
