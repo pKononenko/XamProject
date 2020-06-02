@@ -35,7 +35,6 @@ namespace EntityUniProjectTrain
             var nav = new NavigationPage(MainPageInstance);
             nav.BarBackgroundColor = (Color)App.Current.Resources["primaryIndianRed"];
             nav.BarTextColor = Color.White;
-
             MainPage = nav;
         }
 
