@@ -29,7 +29,7 @@ namespace EntityUniProjectTrain
                 }
             }
 
-            MainPage = new NavigationPage(new MainPage());
+            // MainPage = new MasterDetailPageNavigation.MainPage();
             // var nav = new NavigationPage(new MainPage());
             var nav = new MainPage();
             // nav.BarBackgroundColor = (Color)App.Current.Resources["primaryIndianRed"];

@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="EntityUniProjectTrain.MainPage">
-    
+
     <MasterDetailPage.Master>
         <ContentPage Title="Main" BackgroundColor="Bisque">
             <ContentPage.Content>
@@ -17,20 +17,21 @@
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>
-    
-    <MasterDetailPage.ToolbarItems>
+
+    <!--<MasterDetailPage.ToolbarItems>
         <ToolbarItem Text="Notation" Clicked="CreateItem">
             
         </ToolbarItem>
-        
-        <ToolbarItem Text="Mark" Clicked="CreateMarkItem">
 
+        <ToolbarItem Text="Notation" Clicked="CreateItem">
+            
         </ToolbarItem>
-    </MasterDetailPage.ToolbarItems>
+    </MasterDetailPage.ToolbarItems>-->
+
     <MasterDetailPage.Detail>
         <ContentPage>
             <ContentPage.Content>
-                <StackLayout>
+                <!--<StackLayout>
                     <ListView x:Name="friendsList" ItemSelected="OnItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -48,8 +49,9 @@
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
+                    </ListView>-->
+                <Label Text="sdasdasda"/>
+
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Detail>

@@ -17,7 +17,6 @@
                     HeightRequest = "50"
                     Keyboard="Chat"/>
             <Label Text="Type" />
-            <!--<Entry Text="{Binding NotationType}" />-->
             <Picker x:Name="picker" SelectedItem="{Binding MarkType}">
                 <Picker.Items>
                     <x:String>Tag</x:String>

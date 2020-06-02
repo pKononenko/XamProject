@@ -26,5 +26,21 @@ namespace EntityUniProjectTrain
 
             base.OnAppearing();
         }
+
+        private async void CreateItem(object sender, EventArgs e)
+        {
+            Notation friend = new Notation();
+            FriendPage friendPage = new FriendPage();
+            friendPage.BindingContext = friend;
+            await Navigation.PushAsync(friendPage);
+        }
+
+        private async void CreateMarkItem(object sender, EventArgs e)
+        {
+            Mark mark = new Mark();
+            MarkPage markPage = new MarkPage();
+            markPage.BindingContext = mark;
+            await Navigation.PushAsync(markPage);
+        }
     }
 }

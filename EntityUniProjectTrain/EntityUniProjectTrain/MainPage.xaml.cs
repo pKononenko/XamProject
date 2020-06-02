@@ -13,80 +13,46 @@ namespace EntityUniProjectTrain
     public partial class MainPage : MasterDetailPage
 
     {
-    public MainPage()
-    {
-        InitializeComponent();
-        Detail = new NavigationPage(new DayPage());
-        IsPresented = true;
-    }
-
-
-
-    protected override void OnAppearing()
-    {
-        string dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
-        using (EntityTodoDatabase db = new EntityTodoDatabase(dbPath))
+        public MainPage()
         {
-            friendsList.ItemsSource = db.Notations.OrderByDescending(x => x.DateOfCreation).ToList();
+            InitializeComponent();
+            Detail = new NavigationPage(new DayPage());
+            IsPresented = true;
         }
-<<<<<<< HEAD
 
-        base.OnAppearing();
-    }
+        /*private async void CreateItem(object sender, EventArgs e)
+        {
+            Notation friend = new Notation();
+            FriendPage friendPage = new FriendPage();
+            friendPage.BindingContext = friend;
+            await Navigation.PushAsync(friendPage);
+        }
 
-    // Обробка вибору елементу
-    private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-    {
-        Notation selectedFriend = (Notation) e.SelectedItem;
-        FriendPage friendPage = new FriendPage();
-        friendPage.BindingContext = selectedFriend;
-        await Navigation.PushAsync(friendPage);
-    }
-
-    // Обробка натиснення на кнопку
-    private async void CreateItem(object sender, EventArgs e)
-    {
-        Notation friend = new Notation();
-        FriendPage friendPage = new FriendPage();
-        friendPage.BindingContext = friend;
-        await Navigation.PushAsync(friendPage);
-    }
-
-    private async void CreateMarkItem(object sender, EventArgs e)
-    {
-        Mark mark = new Mark();
-        MarkPage markPage = new MarkPage();
-        markPage.BindingContext = mark;
-        await Navigation.PushAsync(markPage);
-    }
-
-    private void OpenAllNotations(object sender, EventArgs e)
-    {
-        Detail = new NavigationPage(new AllNotationsPage());
-        IsPresented = false;
-    }
-    
-    private void OpenAllMarks(object sender, EventArgs e)
-    {
-        Detail = new NavigationPage(new AllMarksPage());
-        IsPresented = false;
-    }
-    
-    private void OpenDay(object sender, EventArgs e)
-    {
-        Detail = new NavigationPage(new DayPage());
-        IsPresented = false;
-    }
-
-=======
-        
         private async void CreateMarkItem(object sender, EventArgs e)
         {
             Mark mark = new Mark();
             MarkPage markPage = new MarkPage();
             markPage.BindingContext = mark;
             await Navigation.PushAsync(markPage);
+        }*/
+
+        private void OpenAllNotations(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new AllNotationsPage());
+            IsPresented = false;
         }
->>>>>>> master
+    
+        private void OpenAllMarks(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new AllMarksPage());
+            IsPresented = false;
+        }
+    
+        private void OpenDay(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new DayPage());
+            IsPresented = false;
+        }
+
     }
 }
