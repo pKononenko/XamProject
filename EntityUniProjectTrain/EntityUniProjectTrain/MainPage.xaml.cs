@@ -29,6 +29,7 @@ namespace EntityUniProjectTrain
         {
             friendsList.ItemsSource = db.Notations.OrderByDescending(x => x.DateOfCreation).ToList();
         }
+<<<<<<< HEAD
 
         base.OnAppearing();
     }
@@ -77,5 +78,15 @@ namespace EntityUniProjectTrain
         IsPresented = false;
     }
 
+=======
+        
+        private async void CreateMarkItem(object sender, EventArgs e)
+        {
+            Mark mark = new Mark();
+            MarkPage markPage = new MarkPage();
+            markPage.BindingContext = mark;
+            await Navigation.PushAsync(markPage);
+        }
+>>>>>>> master
     }
 }
