@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -11,12 +12,23 @@ namespace EntityUniProjectTrain
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        private MainPage()
         {
             InitializeComponent();
         }
 
+        private static MainPage _instance;
         // Обробка змін при появі
+
+        public static MainPage GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new MainPage();
+            }
+            return _instance;
+        }
+
         protected override void OnAppearing()
         {
             string dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);

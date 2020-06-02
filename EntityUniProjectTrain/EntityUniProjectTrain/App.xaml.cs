@@ -30,7 +30,9 @@ namespace EntityUniProjectTrain
             }
 
             // MainPage = new NavigationPage(new MainPage());
-            var nav = new NavigationPage(new MainPage());
+            // var nav = new NavigationPage(new MainPage());
+            MainPage MainPageInstance = EntityUniProjectTrain.MainPage.GetInstance();
+            var nav = new NavigationPage(MainPageInstance);
             nav.BarBackgroundColor = (Color)App.Current.Resources["primaryIndianRed"];
             nav.BarTextColor = Color.White;
 

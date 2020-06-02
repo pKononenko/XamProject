@@ -23,10 +23,13 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Margin="20,0,20,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding NotationName}" VerticalTextAlignment="Center" FontSize="Medium" HorizontalOptions="StartAndExpand" TextColor="Black"/>
-                                <Label Text="{Binding NotationType}" FontSize="Medium" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                                <Label Text="{Binding DateOfCreation}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" FontSize="Small"/>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Margin="20,0,20,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding NotationName}" VerticalTextAlignment="Center" FontSize="Medium" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                                    <Label Text="{Binding NotationType}" FontSize="Medium" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding DateOfCreation}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" FontSize="Small"/>
+                                </StackLayout>
+                                <Label Text="{Binding NotationText}"/>
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>
