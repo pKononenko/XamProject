@@ -15,15 +15,26 @@
             <Editor Text="{Binding NotationText}"
                     AutoSize="TextChanges" 
                     Keyboard="Chat"/>
-            <Label Text="Type" />
 
-            <StackLayout Orientation="Horizontal">
-                <!-- Deadline Complete_bool -->
-                <!--<DatePicker Format="D" DateSelected="datePicker_DateSelected" MinimumDate="{Binding MinDate}" Date="{Binding TodayDate}">
-                </DatePicker>-->
+            <StackLayout x:Name ="EventTaskVisible"  Orientation="Vertical">
+                <Label Text="Deadline (date; time)" />
+                <StackLayout Orientation="Horizontal">
+                    <!-- Deadline Complete_bool -->
+                    <!--<DatePicker x:Name = "DeadlineDate"  Format="D" DateSelected="pickerDateSelected"/>-->
+                    <DatePicker x:Name = "DeadlineDate"  Format="D" />
+
+                    <!--<TimePicker x:Name="DeadlineTime" Format="T" PropertyChanged="pickerTimeSelected" />-->
+                    <TimePicker x:Name="DeadlineTime" Format="T" />
+                </StackLayout>
+               
+                <StackLayout Orientation="Horizontal">
+                    <Label Padding="0, 7, 0, 0" Text="Completed"/>
+                    <CheckBox IsChecked="{Binding CompletedBool}"/>
+                </StackLayout>
             </StackLayout>
 
-            <Picker x:Name="picker" SelectedItem="{Binding NotationType}">
+            <Label Text="Type" />
+            <Picker x:Name="picker" SelectedItem="{Binding NotationType}" SelectedIndexChanged="pickerSelectedIndex">
                 <Picker.Items>
                     <x:String>Note</x:String>
                     <x:String>Event</x:String>

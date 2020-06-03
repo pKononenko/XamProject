@@ -31,10 +31,11 @@ namespace EntityUniProjectTrain
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Notation selectedFriend = (Notation) e.SelectedItem;
-            FriendPage friendPage = new FriendPage
+            FriendPage friendPage = new FriendPage(false)
             {
                 BindingContext = selectedFriend
             };
+            
             await Navigation.PushAsync(friendPage);
         }
 
@@ -42,7 +43,7 @@ namespace EntityUniProjectTrain
         private async void CreateItem(object sender, EventArgs e)
         {
             Notation friend = new Notation();
-            FriendPage friendPage = new FriendPage();
+            FriendPage friendPage = new FriendPage(true);
             friendPage.BindingContext = friend;
             await Navigation.PushAsync(friendPage);
         }

@@ -11,12 +11,19 @@
         <StackLayout>
             <Label Text="Title" />
             <Entry Text="{Binding MarkTitle}" />
-            <Label Text="Text" />
-            <Editor Text="{Binding MarkText}"
-                    AutoSize="TextChanges" 
-                    Keyboard="Chat"/>
+
+            <StackLayout x:Name="TagStack" Orientation="Vertical">
+                <Label Text="Symbol"/>
+                <Entry Text="{Binding Sym}"/>
+            </StackLayout>
+
+            <StackLayout x:Name="LabelStack" Orientation="Vertical">
+                <Label Text="Label"/>
+                <Entry Text="{Binding MarkText}"/>
+            </StackLayout>
+            
             <Label Text="Type" />
-            <Picker x:Name="picker" SelectedItem="{Binding MarkType}">
+            <Picker x:Name="picker" SelectedItem="{Binding MarkType}" SelectedIndexChanged="pickerSelectedIndex">
                 <Picker.Items>
                     <x:String>Tag</x:String>
                     <x:String>Label</x:String>
