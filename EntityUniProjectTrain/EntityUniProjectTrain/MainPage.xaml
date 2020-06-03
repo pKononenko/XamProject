@@ -7,7 +7,7 @@
              x:Class="EntityUniProjectTrain.MainPage">
 
     <MasterDetailPage.Master>
-        <ContentPage Title="Main" BackgroundColor="Bisque">
+        <ContentPage Title="Main">
             <ContentPage.Content>
                 <StackLayout Padding="5,30,5,5">
                     <Button Text="Today" Clicked="OpenDay"></Button>

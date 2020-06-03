@@ -13,7 +13,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="marksList">
+            <ListView x:Name="marksList" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

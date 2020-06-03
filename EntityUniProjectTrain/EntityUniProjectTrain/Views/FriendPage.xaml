@@ -16,6 +16,13 @@
                     AutoSize="TextChanges" 
                     Keyboard="Chat"/>
             <Label Text="Type" />
+
+            <StackLayout Orientation="Horizontal">
+                <!-- Deadline Complete_bool -->
+                <!--<DatePicker Format="D" DateSelected="datePicker_DateSelected" MinimumDate="{Binding MinDate}" Date="{Binding TodayDate}">
+                </DatePicker>-->
+            </StackLayout>
+
             <Picker x:Name="picker" SelectedItem="{Binding NotationType}">
                 <Picker.Items>
                     <x:String>Note</x:String>

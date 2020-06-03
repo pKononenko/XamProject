@@ -30,9 +30,11 @@ namespace EntityUniProjectTrain
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Mark selectedMark = (Mark)e.SelectedItem;
-            MarkPage markPage = new MarkPage();
-            markPage.BindingContext = selectedMark;
+            Mark selectedMark = (Mark) e.SelectedItem;
+            MarkPage markPage = new MarkPage
+            {
+                BindingContext = selectedMark
+            };
             await Navigation.PushAsync(markPage);
         }
 
