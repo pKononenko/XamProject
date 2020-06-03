@@ -11,12 +11,24 @@ namespace EntityUniProjectTrain
 {
     [DesignTimeVisible(false)]
     public partial class MainPage : MasterDetailPage
-
     {
+        public List<OptionItem> menuList { get; set; }
+
         public MainPage()
         {
             InitializeComponent();
-            Detail = new NavigationPage(new DayPage());
+
+            menuList = new List<OptionItem>()
+            {
+                new OptionItem() { OptTitle = "Today", TargetType = typeof(DayPage) },
+                new OptionItem() { OptTitle = "All Notations", TargetType = typeof(AllNotationsPage) },
+                new OptionItem() { OptTitle = "All Marks", TargetType = typeof(AllMarksPage) }
+            };
+
+            navigationList.ItemsSource = menuList;
+
+            // Detail = new NavigationPage(new DayPage());
+            Detail = new NavigationPage( (Page) Activator.CreateInstance(typeof(DayPage)) );
             IsPresented = true;
         }
 
@@ -36,7 +48,20 @@ namespace EntityUniProjectTrain
             await Navigation.PushAsync(markPage);
         }*/
 
-        private void OpenAllNotations(object sender, EventArgs e)
+        private void OnPageSelect(object sender, SelectedItemChangedEventArgs e)
+        {
+            var menuItem = (OptionItem)e.SelectedItem;
+            if (menuItem == null)
+            {
+                return;
+            }
+
+            Type navPage = menuItem.TargetType; 
+            Detail = new NavigationPage( (Page)Activator.CreateInstance(navPage) );
+            IsPresented = false;
+        }
+
+        /*private void OpenAllNotations(object sender, EventArgs e)
         {
             Detail = new NavigationPage(new AllNotationsPage());
             IsPresented = false;
@@ -52,7 +77,6 @@ namespace EntityUniProjectTrain
         {
             Detail = new NavigationPage(new DayPage());
             IsPresented = false;
-        }
-
+        }*/
     }
 }

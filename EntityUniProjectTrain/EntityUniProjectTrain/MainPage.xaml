@@ -9,11 +9,39 @@
     <MasterDetailPage.Master>
         <ContentPage Title="Main">
             <ContentPage.Content>
-                <StackLayout Padding="5,30,5,5">
+                <!--<StackLayout Padding="5,30,5,5">
                     <Button Text="Today" Clicked="OpenDay"></Button>
                     <Button Text="All notations" Clicked="OpenAllNotations"></Button>
                     <Button Text="All marks" Clicked="OpenAllMarks"></Button>
-                </StackLayout>
+                </StackLayout>-->
+                <Grid BackgroundColor="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <BoxView Color="#2196f3" Grid.Row="0"/>
+                        <StackLayout Padding="0, 20, 0, 0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="My Day" TextColor="White" FontSize="Large"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <StackLayout Padding="5,30,5,5" Grid.Row="1">
+                        <!--<Button Text="Today" Clicked="OpenDay"></Button>
+                        <Button Text="All notations" Clicked="OpenAllNotations"></Button>
+                        <Button Text="All marks" Clicked="OpenAllMarks"></Button>-->
+                        <ListView x:Name="navigationList"  SeparatorVisibility="None" ItemSelected="OnPageSelect">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Label Text="{Binding OptTitle}" FontSize="Medium" VerticalOptions="Center" TextColor="Black"/>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Grid>
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>
