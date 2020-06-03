@@ -14,17 +14,33 @@
             <Label Text="Text" />
             <Editor Text="{Binding NotationText}"
                     AutoSize="TextChanges" 
-                    HeightRequest = "50"
                     Keyboard="Chat"/>
+
+            <StackLayout x:Name ="EventTaskVisible"  Orientation="Vertical">
+                <Label Text="Deadline (date; time)" />
+                <StackLayout Orientation="Horizontal">
+                    <!-- Deadline Complete_bool -->
+                    <!--<DatePicker x:Name = "DeadlineDate"  Format="D" DateSelected="pickerDateSelected"/>-->
+                    <DatePicker x:Name = "DeadlineDate"  Format="D" />
+
+                    <!--<TimePicker x:Name="DeadlineTime" Format="T" PropertyChanged="pickerTimeSelected" />-->
+                    <TimePicker x:Name="DeadlineTime" Format="T" />
+                </StackLayout>
+               
+                <StackLayout Orientation="Horizontal">
+                    <Label Padding="0, 7, 0, 0" Text="Completed"/>
+                    <CheckBox IsChecked="{Binding CompletedBool}"/>
+                </StackLayout>
+            </StackLayout>
+
             <Label Text="Type" />
-            <Entry Text="{Binding NotationType}" />
-             <Picker x:Name="picker" SelectedItem="{Binding NotationType}">
-                 <Picker.Items>
-                     <x:String>Note</x:String>
-                     <x:String>Event</x:String>
-                     <x:String>Task</x:String>
-                 </Picker.Items>
-             </Picker>
+            <Picker x:Name="picker" SelectedItem="{Binding NotationType}" SelectedIndexChanged="pickerSelectedIndex">
+                <Picker.Items>
+                    <x:String>Note</x:String>
+                    <x:String>Event</x:String>
+                    <x:String>Task</x:String>
+                </Picker.Items>
+            </Picker>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Зберегти" Clicked="SaveNote" />
                 <Button Text="Видалити" Clicked="DeleteNote" />

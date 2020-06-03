@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EntityUniProjectTrain.AllNotationsPage"
+             Title="All notations">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notation" Clicked="CreateItem">
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="friendsList" ItemSelected="OnItemSelected" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Vertical" Margin="20,0,20,0" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding NotationName}" VerticalTextAlignment="Center" FontSize="Medium" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                                        <Label Text="{Binding NotationType}" FontSize="Medium" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding DateOfCreation}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" FontSize="Small"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding NotationText}"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

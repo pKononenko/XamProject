@@ -14,13 +14,31 @@ namespace EntityUniProjectTrain
     {
         string dbPath;
 
-        public MarkPage()
+        public MarkPage(bool visibility)
         {
             InitializeComponent();
 
             // Для виклику методу GetDatabasePath на різних ОС
             // DependencyService потрібний для платформо-залежних реалізацій
             dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
+
+            picker.IsEnabled = visibility;
+        }
+
+        private void pickerSelectedIndex(object sender, EventArgs e)
+        {
+            var mark = (Mark)BindingContext;
+
+            if (mark.MarkType == "Label")
+            {
+                LabelStack.IsVisible = true;
+                TagStack.IsVisible = false;
+            }
+            else
+            {
+                TagStack.IsVisible = true;
+                LabelStack.IsVisible = false;
+            }
         }
 
         private async void SaveNote(object sender, EventArgs e)
