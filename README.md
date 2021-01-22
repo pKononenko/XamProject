@@ -1,5 +1,4 @@
 # XamProject
-OOP Course Project
-\n
-Kononenko P.
-Slipchenko M.
+OOP Course Project  
+Kononenko P.  
+Slipchenko M.  
